@@ -6,5 +6,7 @@ class Program
     {
         //This is super cool//
         Console.WriteLine("Hello Sandbox World!");
+        Console.WriteLine("This is crazy");
+        
     }
 }
