@@ -44,7 +44,7 @@ class Program
             }
 
         } while (userGuessInt != magicNum);
-        Console.WriteLine($"Completed in {i} attempts!")
+        Console.WriteLine($"Completed in {i} attempts!");
         
     }   
 }
