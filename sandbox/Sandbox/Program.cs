@@ -5,8 +5,16 @@ using System.ComponentModel;
 
 class Program
 {
+    static void TestPass(out int x)
+        {
+            x = 30;
+        }
     static void Main(string[] args)
     {
+        int x = 10;
+        TestPass(out x);
+        Console.WriteLine(x);
+
         //This is super cool//
        /* Console.WriteLine("Hello Sandbox World!");
         Console.WriteLine("This is crazy");
@@ -24,7 +32,7 @@ class Program
         {
             Console.WriteLine(i);
         }
-        */
+        
         static void DisplayGreeting()
         {
             Console.WriteLine("hello betty");
@@ -35,8 +43,11 @@ class Program
             double total = n1 + n2 + n3;
             return total;
         }
-        double total = AddNumbers(10,20,30.0);
+        atic int TestRef()double total = AddNumbers(10,20,30.0);
         Console.WriteLine(total);
+        */
+        
+        
     }  
 
 }
