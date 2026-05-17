@@ -2,6 +2,12 @@
 {
     "version": "0.2.0",
     "configurations": [
+        {
+            "name": "C#: <project-name> Debug",
+            "type": "coreclr",
+            "request": "launch",
+            "projectPath": "${workspaceFolder}/<relative-path-to-project-folder><project-name>.csproj"
+        },
 
         {
             "name": "Sandbox Project",
@@ -248,7 +254,7 @@
             "console": "integratedTerminal",
             "internalConsoleOptions": "neverOpen",
             "stopAtEntry": false
-        },
+        }
 
     ]
 }
