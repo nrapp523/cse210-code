@@ -19,10 +19,18 @@ class Word
     public string ReplaceWordWithDashes()
     {
         string dashString = "";
-        for (int i = 0; i < _word.Length; i++)
+        foreach (char letter in _word)
         {
-            dashString += "-";
+            if (letter is '?' or '.' or ',' or '!')
+            {
+                dashString += letter;
+            }
+            else
+            {
+                dashString += "-";
+            }
         }
         return dashString;
+        
     }
 }
