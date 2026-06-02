@@ -13,4 +13,12 @@ class Assignment
     {
         return $"Name: {_studentName}, topic: {_topic}";
     }
+    public string GetStudentName()
+    {
+        return _studentName;
+    }
+    public string GetTopic()
+    {
+        return _topic;
+    }
 }

@@ -26,26 +26,7 @@ class Program
             Console.WriteLine($", 0x{powerNumber.ToString("X")}");
         }*/
         /*List<int> myData = new List<int>();
-        myData.Add(1);
-        myData.Add(2);
-        foreach(int i in myData)
-        {
-            Console.WriteLine(i);
-        }
-        
-        static void DisplayGreeting()
-        {
-            Console.WriteLine("hello betty");
-        }
-        DisplayGreeting();
-        static double AddNumbers(int n1, int n2, double n3)
-        {
-            double total = n1 + n2 + n3;
-            return total;
-        }
-        atic int TestRef()double total = AddNumbers(10,20,30.0);
-        Console.WriteLine(total);
-        */
+        m
         
         
     }  

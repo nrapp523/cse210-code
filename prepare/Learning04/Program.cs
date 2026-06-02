@@ -4,6 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Learning04 World!");
+        WritingAssignment myAssignment = new WritingAssignment("Nick", "Rhetorical Methods", "Rhetorical Analysis of Conference Talk.");
+        Console.WriteLine(myAssignment.GetWritingInformation());
     }
 }
