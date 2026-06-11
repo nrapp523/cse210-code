@@ -1,34 +1,39 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
+using System.Security.Cryptography.X509Certificates;
 
 
 class Program
 {
-    static void TestPass(out int x)
-        {
-            x = 30;
-        }
+  
     static void Main(string[] args)
     {
-        int x = 10;
-        TestPass(out x);
-        Console.WriteLine(x);
-
-        //This is super cool//
-       /* Console.WriteLine("Hello Sandbox World!");
-        Console.WriteLine("This is crazy");
-        */
-       /* for(int i=0; i <= 100; ++i)
-        {
-            int powerNumber = (int)Math.Pow(i, 2);
-            Console.WriteLine($"Two to the power of {i}, is {powerNumber}");
-            Console.WriteLine($", 0x{powerNumber.ToString("X")}");
-        }*/
-        /*List<int> myData = new List<int>();
-        m
-        
-        
+      /*  
+      for (int i = 0; i < 20; i++)
+      {
+        Console.Write("/");
+        Thread.Sleep(250);
+        Console.Write("\b");
+        Console.Write("\\");
+        Thread.Sleep(250);
+        Console.Write("\b");
+      }
+      */
+      Console.CursorVisible = false;
+      int sleepTime = 250;
+      string animationString = "\\|/";
+      DateTime now = DateTime.Now;
+      DateTime endTime = now.AddSeconds(3);
+      int index = 0;
+      while(DateTime.Now < endTime)
+      {
+        Console.Write(animationString[index++ % animationString.Length]);
+        Thread.Sleep(sleepTime);
+        Console.Write("\b");
+      }
+      Console.CursorVisible = true;
     }  
 
 }
