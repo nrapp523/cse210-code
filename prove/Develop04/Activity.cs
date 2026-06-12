@@ -1,3 +1,5 @@
+using System.Runtime.InteropServices.Marshalling;
+
 class Activity
 {
     private string _name;
@@ -18,6 +20,7 @@ class Activity
         Console.WriteLine(_description);
         Console.Write("How many seconds for this activity?: ");
         _duration = int.Parse(Console.ReadLine());
+        Console.Clear();
     }
     public void RunCountDown(string message, int duration)
     {
@@ -30,10 +33,11 @@ class Activity
         }
         Console.Write("\n");
     }
-    public void WrapperForRunningActivity(Action function)
+    public void WrapperForRunningActivity(Action function, Action startFunction = null)
     {
         Console.WriteLine("Get Ready...");
         Spinner(3);
+        startFunction?.Invoke();
         Console.Write("\n");
         DateTime now = DateTime.Now;
         _endTime = now.AddSeconds(_duration);
@@ -41,6 +45,7 @@ class Activity
         {
             function();
         }
+        Console.Clear();
 
     }
     public void EndActivity()
@@ -50,6 +55,7 @@ class Activity
         Console.Write("\n");
         Console.WriteLine($"You have completed another {_duration} seconds of the {_name} activity!");
         Spinner(5);
+        Console.Clear();
 
         
     }
@@ -68,5 +74,10 @@ class Activity
             Console.Write("\b");
         }
         Console.CursorVisible = true;
-        }
+    }
+    protected string PickRandomListItem(List<string> inputList)
+    {
+        int randomIndex = Random.Shared.Next(inputList.Count);
+        return inputList[randomIndex];
+    }
 }

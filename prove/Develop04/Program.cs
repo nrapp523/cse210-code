@@ -4,6 +4,10 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Develop04 World!");
+       Listing myListing = new Listing("This is a test");
+       myListing.StartActivity();
+       myListing.RunActivity();
+       myListing.DisplayAmountOfItems();
+       myListing.EndActivity();
     }
 }
