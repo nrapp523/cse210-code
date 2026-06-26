@@ -17,7 +17,7 @@ abstract class Goal
   }
   public void SetName()
   {
-    Console.Write("What is the name of your goal");
+    Console.Write("What is the name of your goal: ");
     _name = Console.ReadLine();
   }
   public void SetDescription()
@@ -44,7 +44,7 @@ abstract class Goal
       _status = true;
       return _numberOfPoints;
     }
-    public abstract  void CreateGoal();
+    public abstract void CreateGoal();
     public abstract void RecordEvent();
   }
 
