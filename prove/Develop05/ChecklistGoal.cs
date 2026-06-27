@@ -2,6 +2,7 @@ class ChecklistGoal : Goal
 {
     private int _numberOfTimesTilBonus;
     private int _bonus;
+    private int _numberCompleted;
     public ChecklistGoal()
     {
         SetName();
@@ -9,6 +10,7 @@ class ChecklistGoal : Goal
         SetNumberOFPoints();
         SetNumberOfTimesTilBonus();
         SetBonus();
+        _numberCompleted = 0;
     }
     public void SetNumberOfTimesTilBonus()
     {
@@ -30,6 +32,6 @@ class ChecklistGoal : Goal
     }
     public override string GetDisplayString()
     {
-        return $"{base.GetDisplayString()}, Events until Bonus: {_numberOfTimesTilBonus}, Bonus Points: {_bonus}";
+        return $"[{_numberCompleted}/{_numberOfTimesTilBonus}]Name: {base.GetName()}, Description: {base.GetDescription()}, Points Earned: {base.GetPoints()} Events until Bonus: {_numberOfTimesTilBonus}, Bonus Points: {_bonus}";
     }
 }
