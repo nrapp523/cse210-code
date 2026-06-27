@@ -1,7 +1,9 @@
+using System.Runtime.InteropServices.Java;
 using System.Security.Cryptography.X509Certificates;
 
 abstract class Goal
 {
+    private string _marker;
     private string _name;
     private string _description;
     private int _numberOfPoints;
@@ -30,12 +32,28 @@ abstract class Goal
     Console.Write($"Enter the points earned {_name} goal: ");
     _numberOfPoints = int.Parse(Console.ReadLine());
   }
+  public void SetMarker(string marker)
+  {
+    _marker = marker;
+  }
+  public string GetName()
+  {
+    return _name;
+  }
+  public string GetDescription()
+  {
+    return _description;
+  }
+  public string GetPoints()
+  {
+    return $"{_numberOfPoints}";
+  }
    public virtual string GetDisplayString()
     {
-        char statusMarker = ' ';
+        string statusMarker = " ";
         if(_status)
         {
-            statusMarker = 'X';
+            statusMarker = _marker;
         }
         return $"[{statusMarker}]Name: {_name}, Description: {_description}, Points Earned: {_numberOfPoints}";
     }
