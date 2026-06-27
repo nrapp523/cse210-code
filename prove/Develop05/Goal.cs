@@ -37,12 +37,16 @@ abstract class Goal
         {
             statusMarker = 'X';
         }
-        return $"[{statusMarker}] Name: {_name}, Description {_description}, points earned: ";
+        return $"[{statusMarker}]Name: {_name}, Description: {_description}, Points Earned: {_numberOfPoints}";
     }
     public int MarkComplete()
     {
       _status = true;
       return _numberOfPoints;
+    }
+    public void RemoveX()
+    {
+      _status = false;
     }
     public abstract void CreateGoal();
     public abstract void RecordEvent();

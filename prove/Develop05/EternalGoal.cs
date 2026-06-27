@@ -1,11 +1,13 @@
 class EternalGoal : Goal
 {
+   
     public EternalGoal()
     {
         SetName();
         SetDescription();
         SetNumberOFPoints();
     }
+ 
     public override void CreateGoal()
     {
 
@@ -14,5 +16,5 @@ class EternalGoal : Goal
     {
         
     }
-
+   
 }

@@ -5,8 +5,8 @@ class Program
     static void Main(string[] args)
     {
 
-        EternalGoal myGoal = new EternalGoal();
-        myGoal.MarkComplete();        
+        ChecklistGoal myGoal = new ChecklistGoal();
+        Console.WriteLine(myGoal.GetDisplayString());   
     }
    
 }
