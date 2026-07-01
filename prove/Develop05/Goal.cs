@@ -1,40 +1,55 @@
 using System.Runtime.InteropServices.Java;
 using System.Security.Cryptography.X509Certificates;
-
-abstract class Goal
+using Spectre.Console;
+class Goal
 {
-    private string _marker;
     private string _name;
     private string _description;
     private int _numberOfPoints;
-    private bool _status;
+    private string _statusMarker;
     private string _goalType;
+    private int _totalPoints;
   public Goal()
   {
     _name = "";
     _description = "";
     _numberOfPoints = 0;
-    _status = false;
+    _statusMarker = " ";
     _goalType = "";
+    _totalPoints = 0;
+  }
+  public Goal(string name, string description, int numberOfPoints, 
+  string statusMarker, int totalPoints)
+  {
+    _name = name;
+    _description = description;
+    _numberOfPoints = numberOfPoints;
+    _statusMarker = statusMarker;
+    _totalPoints = totalPoints;
+
+  }
+  public int GetTotalPoints()
+  {
+    return _totalPoints;
   }
   public void SetName()
   {
-    Console.Write("What is the name of your goal: ");
+    AnsiConsole.Markup("[bold red]What is the name of your goal: [/]");
     _name = Console.ReadLine();
   }
   public void SetDescription()
   {
-    Console.Write($"Enter the description for {_name} goal: ");
+    AnsiConsole.Markup($"[bold green]Enter the description for {_name} goal: [/]");
     _description = Console.ReadLine();
   }
   public void SetNumberOFPoints()
   {
-    Console.Write($"Enter the points earned {_name} goal: ");
+    AnsiConsole.Markup($"[bold green]Enter the points earned {_name} goal: [/]");
     _numberOfPoints = int.Parse(Console.ReadLine());
   }
-  public void SetMarker(string marker)
+  public void SetMarker(string statusmarker)
   {
-    _marker = marker;
+    _statusMarker = statusmarker;
   }
   public string GetName()
   {
@@ -48,26 +63,25 @@ abstract class Goal
   {
     return $"{_numberOfPoints}";
   }
+  public void SetGoalType(string goalType)
+  {
+    _goalType = goalType;
+  }
    public virtual string GetDisplayString()
     {
-        string statusMarker = " ";
-        if(_status)
-        {
-            statusMarker = _marker;
-        }
-        return $"[{statusMarker}]Name: {_name}, Description: {_description}, Points Earned: {_numberOfPoints}";
+       
+      return $"[{_statusMarker}]Name: {_name}, Description: {_description}, Points Earned: {_numberOfPoints}";
     }
-    public int MarkComplete()
+    public virtual int MarkComplete()
     {
-      _status = true;
       return _numberOfPoints;
     }
-    public void RemoveX()
+ 
+    public virtual string CreateStorageString()
     {
-      _status = false;
+      return $"{_name},{_description},{_numberOfPoints},{_statusMarker},{_goalType}, {_totalPoints}";
     }
-    public abstract void CreateGoal();
-    public abstract void RecordEvent();
+   
+    
   }
-
 

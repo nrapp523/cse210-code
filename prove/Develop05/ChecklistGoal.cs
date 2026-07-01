@@ -1,9 +1,17 @@
+using Spectre.Console;
 class ChecklistGoal : Goal
 {
     private int _numberOfTimesTilBonus;
     private int _bonus;
     private int _numberCompleted;
-    public ChecklistGoal()
+    public ChecklistGoal(string name, string description, int numberOfPoints, string statusMarker, int totalPoints, int numberOfTimesTilBonus, int bonus, int numberCompleted) : base(name, description, numberOfPoints, statusMarker, totalPoints)
+    {
+        SetGoalType("ChecklistGoal");
+        _numberOfTimesTilBonus = numberOfTimesTilBonus;
+        _bonus = bonus;
+        _numberCompleted = numberCompleted;
+    }
+    public ChecklistGoal() : base()
     {
         SetName();
         SetDescription();
@@ -11,10 +19,12 @@ class ChecklistGoal : Goal
         SetNumberOfTimesTilBonus();
         SetBonus();
         _numberCompleted = 0;
+        SetGoalType("ChecklistGoal");
+        SetMarker($"{_numberCompleted}/{_numberOfTimesTilBonus}");
     }
     public void SetNumberOfTimesTilBonus()
     {
-         Console.Write("How times until you receive bonus: ");
+         AnsiConsole.Markup("[bold red]How many times until you receive bonus: ");
         _numberOfTimesTilBonus = int.Parse(Console.ReadLine());
     }
     public void SetBonus()
@@ -22,16 +32,40 @@ class ChecklistGoal : Goal
          Console.Write("How many points is the bonus: ");
         _bonus = int.Parse(Console.ReadLine());
     }
-    public override void CreateGoal()
+    public override int MarkComplete()
     {
-      
+        bool addBonus = CheckIfBonus();
+        _numberCompleted += 1;
+        SetMarker($"{_numberCompleted}/{_numberOfTimesTilBonus}");
+        if(addBonus)
+        {
+            return base.MarkComplete() + _bonus;
+        }
+        else
+        {
+            return base.MarkComplete();
+        }
+    
     }
-    public override void RecordEvent()
+    public override string CreateStorageString()
     {
-        
+        return $"{base.CreateStorageString()},{_bonus}";
     }
     public override string GetDisplayString()
     {
-        return $"[{_numberCompleted}/{_numberOfTimesTilBonus}]Name: {base.GetName()}, Description: {base.GetDescription()}, Points Earned: {base.GetPoints()} Events until Bonus: {_numberOfTimesTilBonus}, Bonus Points: {_bonus}";
+        return base.GetDisplayString();
     }
+    public bool CheckIfBonus()
+    {
+        if(_numberCompleted == _numberOfTimesTilBonus)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+   
+    
 }

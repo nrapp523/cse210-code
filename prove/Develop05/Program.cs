@@ -1,12 +1,17 @@
 using System;
+using System.Text;
+using Spectre.Console;
 
 class Program
 {
     static void Main(string[] args)
     {
 
-        ChecklistGoal myGoal = new ChecklistGoal();
-        Console.WriteLine(myGoal.GetDisplayString());   
+       Menu myMenu = new Menu();
+       myMenu.MenuLoop();  
+        
+    
+       
     }
    
 }
