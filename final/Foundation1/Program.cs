@@ -20,6 +20,16 @@ class Program
         myVideo3.addComment("Hayden", "Polymorphism");
         myVideo3.addComment("Ian", "test");
 
+        List<Video> videoList = new List<Video>();
+        videoList.Add(myVideo1);
+        videoList.Add(myVideo2);
+        videoList.Add(myVideo3);
+
+        foreach(Video myVideo in videoList)
+        {
+            myVideo.ListInfo();
+        }
+
         
     }
 }

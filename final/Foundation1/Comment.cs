@@ -8,4 +8,8 @@ class Comment
         _name = name;
         _text = text;
     }
+    public void GetText()
+    {
+        Console.WriteLine(_text);
+    }
 }
