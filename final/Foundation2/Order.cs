@@ -8,7 +8,6 @@ class Order
     private int _shippingCost;
     private string _packingLabel;
     private string _shippingLabel;
-
     public void addCustomer(Customer addedCustomer)
     {
         _currentCustomer = addedCustomer;

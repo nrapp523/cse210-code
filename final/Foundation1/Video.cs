@@ -5,7 +5,6 @@ class Video
     private int _length;
     private List<Comment> commentList = new List<Comment>();
     private int _amountOfComments;
-
     public Video(string title, string author, int length)
     {
         _title = title;
